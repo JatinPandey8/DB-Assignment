@@ -1,0 +1,6 @@
+1. In the given schema, the "Product" and "Product_Category" entities have a "many-to-one" relationship. A foreign key can be used to link several records in one table (the "Product" table in this example) to a single record in another table (the "Product_Category" table) in a many-to-one relationship. Numerous products can also be in the same category in a many-to-one relationship (many "Product" records referencing a single "Product_Category" record).
+
+2. We can use the foreign key constraint to make sure that every product in the "Product" table has a valid category assigned to it. The category_id column in the "Product" table in the given schema is a foreign key that points to the id column in the "Product_Category" table.
+FOREIGN KEY (category_id) REFERENCES product_category(id)
+The database management system (DBMS) will automatically verify and maintain referential integrity during data manipulation operations (inserts, updates, and deletes) if the foreign key constraint is in place. The DBMS will raise an error and stop the operation if an attempt is made to delete a category that a product references or to insert or update a record in the "Product" table with a category_id that does not exist in the "Product_Category" table.
+
